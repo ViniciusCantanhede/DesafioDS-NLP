@@ -33,14 +33,15 @@ O projeto segue um pipeline completo de desenvolvimento que inclui:
 5. **Avaliação**: Validação em exemplos representativos
 6. **Aplicação**: Demonstração prática da extração de informações em novos documentos
 
-## Tecnologias Utilizadas
+## Tecnologias Utilizadas (Arquivo requirements.txt na pasta Codigo contém as versões)
 
-- Python 3.x
+- Python 3.11.11
 - PyTorch
 - Hugging Face Transformers
 - NLTK
 - Pandas
 - RegEx
+- Numpy
 
 ## Resultados
 
