@@ -45,8 +45,3 @@ O projeto segue um pipeline completo de desenvolvimento que inclui:
 ## Resultados
 
 O modelo alcançou excelentes resultados na identificação de entidades médicas, com uma perda de validação final de 0.018560 após 3 épocas de treinamento. A abordagem combinada de NER e prompts demonstrou ser particularmente eficaz para extrair informações completas e estruturadas de textos médicos complexos.
-
-## Como Executar
-
-1. Clone este repositório
-2. Instale as dependências necessárias:
