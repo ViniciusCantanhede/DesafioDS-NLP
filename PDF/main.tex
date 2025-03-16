@@ -1,0 +1,120 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+%\title{Extração de Entidades Médicas em Textos Clínicos}
+%\author{Vinicius Cantanhede dos Santos}
+%\date{March 2025}
+
+\begin{document}
+\begin{titlepage}
+    \centering
+    \vspace*{\stretch{1}}
+    {\Huge\bfseries Extração de Entidades Médicas em Textos Clínicos\par}
+    \vspace{1cm}
+    {\Large Vinicius Cantanhede dos Santos\par}
+    \vspace{1cm}
+    {\large Resumo do Projeto para NeuralMed\par}
+    \vspace{1cm}
+    {\large Março de 2025\par}
+    \vspace*{\stretch{2}}
+\end{titlepage}
+
+\section{Visão Geral}
+Este projeto foi desenvolvido como parte de um desafio para uma vaga de cientista de dados júnior na NeuralMed, empresa especializada em IA aplicada à saúde. O objetivo principal foi criar um sistema capaz de extrair informações estruturadas de documentos médicos não estruturados, facilitando a classificação de pacientes por doenças e condições médicas.
+O projeto utiliza técnicas de Processamento de Linguagem Natural (NLP) e Reconhecimento de Entidades Nomeadas (NER) para identificar e categorizar elementos importantes em textos médicos, como medicamentos, procedimentos, dispositivos, condições do paciente e resultados de exames.
+\section{Objetivos}
+Desenvolver um pipeline completo para processamento de documentação médica
+\begin{itemize}
+    \item Implementar um modelo NER específico para terminologia médica em português.
+    \item Avaliar a eficácia do modelo na extrações de informações médicas relevantes.
+    \item Demonstrar a aplicabilidade prática do sistema para casos reais.
+\end{itemize}
+\section{Metodologia}
+O projeto segue uma abordagem estruturada em várias etapas: 
+
+\noindent \textbf{1. Pré-processamento especializado:}
+\begin{itemize}
+    \item Limpeza de texto em múltiplos formatos (HTML, RTF, texto puro).
+    \item Normalização adaptada ao contexto médico (remoção de acentos, padronização).
+    \item Tokenização especializada com foco em terminologia médica. 
+    \item Identifica padrões de horário e segmenta o texto cronologicamente.
+    \item Função unificada que detecta o formato do texto e aplica a limpeza apropriada.
+\end{itemize}
+
+\noindent \textbf{2. Anotação automática de entidades:}
+\begin{itemize}
+    \item Desenvolvimento de dicionários médicos abrangentes para cinco catetgorias principais: medicamentos, procedimentos, dipositivos e condições
+    \item Implementação de regras contextuais para detecção de padrões específicos.
+    \item Esquema de anotação no formato BIO (Beginning-Inside-Outside).
+\end{itemize}
+
+\noindent \textbf{3. Desenvolvimento do modelo:}
+\begin{itemize}
+    \item Prepara os exemplos anotados para o formato da biblioteca Hugging Face, dividindo em treino (80\%) e validação (20\%).
+    \item Alinha as etiquetas com os tokens gerados pelo tokenizer do modelo.
+    \item Fine-Tunning de modelo transformer pré-treinado em português (neuralmind/bert-base-portuguese-cased).
+    \item Adaptação para tarefas de NER com camada de classificação de tokens.
+    \item Treinamento com dataset anotado de documentos médicos reais.
+\end{itemize}
+
+\noindent \textbf{4. Avaliação e Predição:}
+\begin{itemize}
+    \item Avaliação do modelo em cenários clínicos representativos.
+    \item Visualização intuitiva das entidades detectadas.
+    \item Estruturação das informações extraídas para uso em aplicações médicas.
+\end{itemize}
+\textbf{5. Sistema de reconhecimento de entidades: }
+
+\noindent Identificação de 5 categorias principais de entidades médicas: 
+\begin{itemize}
+    \item MEDICAMENTO: substâncias farmacêuticas (ex: "ceftriaxona", "insulina").
+    \item PROCEDIMENTO: intervenções e ações clínicas (ex: "teste glicêmico", "coleta de exames").
+    \item DISPOSITIVO: equipamentos e materiais médicos (ex: "cateter O2", "acesso venoso").
+    \item CONDIÇÃO-PACIENTE: estado do paciente (ex: "calmo", "orientado", "dispneico").
+    \item RESULTADO-EXAME: valores de exames clínicos (ex: "145 mg/dl", "36.8°C")
+\end{itemize}
+\textbf{6. Pipeline de Treinamento Integrado:}
+
+\noindent Foi implementado um pipeline completo (train\_medical\_ner\_pipeline) que integra todas as etapas, desde o processamento até a avaliação final. O pipeline foi executado com uma amostra de 3.000 documentos, resultando em:
+\begin{itemize}
+    \item 2.991 documentos processados.
+    \item 2.287 documentos com entidades anotadas.
+    \item 11.094 entidades identificadas, distribuídas em: PROCEDIMENTO: 40.9\%, DISPOSITIVO: 22.3\%, CONDIÇÃO\_PACIENTE: 19.9\%, MEDICAMENTO: 10.1\%, RESULTADO\_EXAME: 6.8\%.
+\end{itemize}
+O modelo foi treinado por 3 épocas, com perda de validação final de 0.018560.
+\textbf{7. Uso do Modelo em Aplicações Reais:} 
+
+\noindent Foi implementada a função extract\_medical\_info para extrair e organizar informações médicas por categoria, demonstrando a aplicabilidade do modelo em cenários reais.
+
+\noindent \textbf{8. Implementação de Extrações via Prompt:}
+
+\noindent Como alternativa ao modelo NER, foram implementadas funções para extrair informações médicas usando prompts estruturados para modelos de linguagem (LLMs): 
+\begin{itemize}
+    \item \textbf{create\_medical\_extraction\_prompt:} Cria prompts específicos para diferentes tipos de extração (medicamentos, exames, diagnósticos).
+    \item \textbf{extract\_via\_prompt:} Extrai informações usando um serviço de LLM (simulação com respostas predefinidas).
+    \item \textbf{ compare\_extraction\_methods:} Compara os resultados obtidos via NER e via prompt.
+\end{itemize}
+\textbf{9. Resultados e comparações:}
+
+\noindent Os resultados mostraram que:
+\begin{itemize}
+    \item O modelo NER é eficiente para identificar entidades básicas como medicamentos, dispositivos e condições do paciente.
+    \item As extrações via prompt (LLM) são mais detalhadas, extraindo informações estruturadas como dosagens, vias de administração e frequências de medicamentos.
+    \item A abordagem combinada permite extrair informações completas e estruturadas de textos médicos não estruturados.
+\end{itemize}
+\section{Diferenciais do Projeto}
+\begin{itemize}
+    \item \textbf{Especialização para português médico brasileiro:}  Diferente da maioria das soluções disponíveis, que são focadas em inglês
+    \item \textbf{Abordagem híbrida:} Combinação de técnicas baseadas em regras e aprendizado profundo.
+    \item \textbf{Demonstração prática:} Exemplos concretos de uso em cenários clínicos reais.
+    \item \textbf{Código modular e extensível:} Facilidade para adicionar novas categorias de entidades e regras
+\end{itemize}
+\section{Conclusão}
+Este projeto demonstra uma solução prática e eficiente para um dos desafios centrais na aplicação de IA na saúde: a extração de informações estruturadas a partir de texto clínico livre. A abordagem desenvolvida combina conhecimento de domínio médico com técnicas modernas de NLP, resultando em um sistema que poderia ser facilmente adaptado e integrado aos produtos da NeuralMed, potencializando sua capacidade de processar e analisar documentação médica em larga escala. 
+
+\noindent A combinação de um modelo NER treinado para identificação básica de entidades com prompts estruturados para LLMs oferece uma solução robusta para extração de informações médicas, aproveitando os pontos fortes de ambas as abordagens.
+
+\noindent Este projeto demonstra minha capacidade de implementar um pipeline completo de NLP para o domínio médico, aplicando conhecimentos técnicos de processamento de linguagem natural a um problema real e relevante. A solução é escalável, interpretável e pronta para ser refinada e expandida conforme as necessidades específicas da NeuralMed.
+
+\noindent Estou entusiasmado com a possibilidade de contribuir para o desenvolvimento de soluções de IA que possam ter impacto real na qualidade do atendimento ao paciente e na eficiência dos processos de saúde.
+\end{document}
