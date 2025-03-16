@@ -1,16 +1,16 @@
 # Desafio NLP para Extração de Informações Médicas - NeuralMed
 
-## Sobre o Projeto
+## Sobre o Projeto :memo:
 
 Este repositório contém minha solução para o desafio de Processamento de Linguagem Natural (NLP) proposto pela NeuralMed. O projeto implementa um sistema de extração de informações estruturadas a partir de documentos médicos não estruturados, utilizando técnicas de NER (Named Entity Recognition) e processamento baseado em prompts.
 
-## Estrutura do Repositório
+## Estrutura do Repositório :bookmark_tabs:
 
 - **`/Codigo`**: Contém o requirements.txt e o notebook Jupyter com a implementação completa do pipeline de NLP.
 - **`/Respostas`**: Documento com as respostas do Docs enviado para o desafio desafio.
 - **`/PDF`**: PDF explicativo (produzido em LateX) com a descrição completa do projeto, metodologia e resultados (o código em LateX também está na pasta).
 
-## Funcionalidades Implementadas
+## Funcionalidades Implementadas :pushpin:
 
 - Pré-processamento especializado para documentos médicos em diferentes formatos (HTML, RTF, texto plano)
 - Sistema de reconhecimento de entidades nomeadas (NER) para identificação de:
@@ -22,7 +22,7 @@ Este repositório contém minha solução para o desafio de Processamento de Lin
 - Extração via prompts estruturados para modelos de linguagem
 - Comparação entre abordagens de NER e baseadas em prompts
 
-## Pipeline de Desenvolvimento
+## Pipeline de Desenvolvimento :wrench:
 
 O projeto segue um pipeline completo de desenvolvimento que inclui:
 
@@ -33,7 +33,7 @@ O projeto segue um pipeline completo de desenvolvimento que inclui:
 5. **Avaliação**: Validação em exemplos representativos
 6. **Aplicação**: Demonstração prática da extração de informações em novos documentos
 
-## Tecnologias Utilizadas (Arquivo requirements.txt na pasta Codigo contém as versões)
+## Tecnologias Utilizadas (Arquivo requirements.txt na pasta Codigo contém as versões) :mag:
 
 - Python 3.11.11
 - PyTorch
@@ -43,6 +43,6 @@ O projeto segue um pipeline completo de desenvolvimento que inclui:
 - RegEx
 - Numpy
 
-## Resultados
+## Resultados :dart:
 
 O modelo alcançou excelentes resultados na identificação de entidades médicas, com uma perda de validação final de 0.018560 após 3 épocas de treinamento. A abordagem combinada de NER e prompts demonstrou ser particularmente eficaz para extrair informações completas e estruturadas de textos médicos complexos.
