@@ -8,7 +8,7 @@ Este repositório contém minha solução para o desafio de Processamento de Lin
 
 - **`/Codigo`**: Contém o requirements.txt e o notebook Jupyter com a implementação completa do pipeline de NLP.
 - **`/Respostas`**: Documento com as respostas do Docs enviado para o desafio desafio.
-- **`/PDF`**: PDF produzido em LateX explicativo com a descrição completa do projeto, metodologia e resultados.
+- **`/PDF`**: PDF explicativo (produzido em LateX) com a descrição completa do projeto, metodologia e resultados (o código em LateX também está na pasta).
 
 ## Funcionalidades Implementadas
 
