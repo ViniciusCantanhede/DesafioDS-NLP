@@ -1,8 +1,8 @@
-# Desafio NLP para Extração de Informações Médicas - NeuralMed
+# Desafio NLP para Extração de Informações Médicas - 
 
 ## Sobre o Projeto :memo:
 
-Este repositório contém minha solução para o desafio de Processamento de Linguagem Natural (NLP) proposto pela NeuralMed. O projeto implementa um sistema de extração de informações estruturadas a partir de documentos médicos não estruturados, utilizando técnicas de NER (Named Entity Recognition) e processamento baseado em prompts.
+Este repositório contém minha solução para o desafio de Processamento de Linguagem Natural (NLP). O projeto implementa um sistema de extração de informações estruturadas a partir de documentos médicos não estruturados, utilizando técnicas de NER (Named Entity Recognition) e processamento baseado em prompts.
 
 ## Estrutura do Repositório :bookmark_tabs:
 
